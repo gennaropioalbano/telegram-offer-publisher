@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="navbar"></div>
+
+    <div class="offer-tool">
+        <form class="offer-tool__form">
+
+            <!-- CONFIG -->
+            <h2>⚙️ CONFIGURAZIONE BOT</h2>
+            <div class="offer-tool__config">
+                <div class="offer-tool__field offer-tool__field--inline">
+                    <label class="offer-tool__label" for="token_bot">
+                        Token Bot Telegram
+                    </label>
+                    <input class="offer-tool__input" type="text" name="token_bot" id="token_bot" placeholder="123456789_ABCdef...">
+                </div>
+
+                <div class="offer-tool__field">
+                    <label class="offer-tool__label" for="channel_id">
+                        Channel ID
+                    </label>
+                    <input class="offer-tool__input" type="text" name="channel_id" id="channel_id" placeholder="@miocanale">
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <!-- OFFER -->
+             <h2>📦 DETTAGLI OFFERTA</h2>
+            <div class="offer-tool__offer">
+
+                <!-- CATEGORY -->
+                <div class="offer-tool__field">
+                    <label class="offer-tool__label" for="token_bot">
+                        Categoria
+                    </label>
+                    <ul class="offer-tool__categories">
+                        <li class="offer-tool__category offer-tool__category--selected">
+                            <span>📱</span>
+                        </li>
+                        <li class="offer-tool__category">
+                            <span>💻</span>
+                        </li>
+                        <li class="offer-tool__category">
+                            <span>🎮</span>
+                        </li>
+                        <li class="offer-tool__category">
+                            <span>🏠</span>
+                        </li>
+                        <li class="offer-tool__category">
+                            <span>👗</span>
+                        </li>
+                        <li class="offer-tool__category">
+                            <span></span>
+                        </li>
+                        <li class="offer-tool__category">
+                            <span>🔧</span>
+                        </li>
+                        <li class="offer-tool__category">
+                            <span>📚</span>
+                        </li>
+                        <li class="offer-tool__category">
+                            <span>🍽️</span>
+                        </li>
+                        <li class="offer-tool__category">
+                            <span>🎁</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- TITLE -->
+                <div class="offer-tool__field">
+                    <label class="offer-tool__label" for="product_title">
+                        Titolo Prodotto *
+                    </label>
+                    <input class="offer-tool__input" type="text" name="product_title" id="product_title" placeholder="es. Apple AirPods 4">
+                </div>
+
+                <!-- PRICES -->
+                <div class="offer-tool__group offer-tool__group--inline">
+                    <div class="offer-tool__field">
+                        <label class="offer-tool__label" for="price_original">
+                            Prezzo <br>
+                            Originale *
+                        </label>
+                        <input class="offer-tool__input" type="text" name="title" id="price_original" placeholder="es. 249,00€">
+                    </div>
+                    <div class="offer-tool__field">
+                        <label class="offer-tool__label" for="price_discounted">
+                        Prezzo <br>
+                        Scontato *
+                        </label>
+                        <input class="offer-tool__input" type="text" name="price_discounted" id="price_discounted" placeholder="es. 179,00€">
+                    </div>
+                    <div class="offer-tool__field">
+                        <label class="offer-tool__label" for="discount">
+                            <br>
+                            Sconto %
+                        </label>
+                        <input class="offer-tool__input" type="text" name="discount" id="discount" placeholder="auto">
+                    </div>
+                </div>
+
+                <div class="offer-tool__field">
+                    <label class="offer-tool__label" for="product_description">
+                        Descrizione (opzionale)
+                    </label>
+                    <textarea class="offer-tool__input" name="product_description" id="product_description" placeholder="es. Con cancellazione attiva del rumore, 30h batteria..."></textarea>
+                </div>
+
+                <div class="offer-tool__group offer-tool__group--inline">
+                    <div class="offer-tool__field">
+                        <label class="offer-tool__label" for="coupon_code">
+                            Codice Coupon <br>
+                            (opzionale)
+                        </label>
+                        <input class="offer-tool__input" type="text" name="coupon_code" id="coupon_code" placeholder="es. SAVE20">
+                    </div>
+                    <div class="offer-tool__field">
+                        <label class="offer-tool__label" for="expiry_date">
+                            Scadenza <br>
+                            (opzionale)
+                        </label>
+                        <input class="offer-tool__input" type="text" name="expiry_date" id="expiry_date" placeholder="es. Oggi, 25/04">
+                    </div>
+                </div>
+
+                <div class="offer-tool__field">
+                    <label class="offer-tool__label" for="affiliate_link">
+                        Link affiliato *
+                    </label>
+                    <input class="offer-tool__field offer-tool__input" type="text" name="affiliate_link" id="affiliate_link" placeholder="https://amzn.to/...">
+                </div>
+
+                <div class="offer-tool__actions">
+                    <button type="button" id="publish_button" class="offer-tool__action-button">
+                        Pubblica sul Canale
+                    </button>
+                    <a href="#"><button class="offer-tool__action-button">🗑️ Cancella</button></a>
+                </div>
+            </div>
+        </form>
+        <div class="offer-tool__preview">
+            <div class="offer-tool__preview-section">
+            <h2>👀 ANTEPRIMA</h2>
+            <div class="offer-tool__preview-box offer-tool__preview-box--message">
+                <p id="preview_message">Compila il form per vedere l'anteprima...</p>
+            </div>
+            </div>
+            <div class="offer-tool__preview-section">
+            <h2>🗒️ TESTO RAW</h2>
+            <div class="offer-tool__preview-box offer-tool__preview-box--raw">
+                <p id="preview_raw"></p>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        fetch("navbar.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("navbar").innerHTML = data;
+            });
+
+        const categories = document.querySelectorAll(".offer-tool__category");
+
+        function selectCategory(e) {
+            const clicked = e.target.closest(".offer-tool__category");
+            if (!clicked) return;
+
+            categories.forEach(cat => {
+                cat.classList.remove("offer-tool__category--selected");
+            });
+
+            clicked.classList.add("offer-tool__category--selected");
+
+            updatePreview();
+        }
+
+        function getSelectedCategory() {
+            const category = document.querySelector(".offer-tool__category--selected").textContent.trim();
+
+            return category;
+        }
+
+        categories.forEach(cat => {
+            cat.addEventListener("click", selectCategory)
+        });
+
+        function buildRaw() {
+            const category = getSelectedCategory();
+            const product_title = document.getElementById("product_title").value.trim();
+            const price_original = document.getElementById("price_original").value.trim();
+            const price_discounted = document.getElementById("price_discounted").value.trim();
+            const manual_discount = document.getElementById("discount").value.trim();
+            const product_description = document.getElementById("product_description").value.trim();
+            const coupon_code = document.getElementById("coupon_code").value.trim();
+            const expiry_date = document.getElementById("expiry_date").value.trim();
+            const affiliate_link = document.getElementById("affiliate_link").value.trim();
+
+            let automatic_discount = 100 * (price_original - price_discounted) / price_original;
+
+            if (!product_title) return null;
+
+            let lines = [];
+            lines.push(`${category} *${product_title}*`);
+            if (product_description) lines.push(`${product_description}`);
+            lines.push(``);
+            if (price_original && price_discounted) {
+                lines.push(`💶 *${price_discounted}€* invece di ${price_original}€ (-${automatic_discount}%)`);
+            } else if (price_discounted){
+                lines.push(`💶 *${price_discounted}€* (-${automatic_discount}%)`);
+            }
+            if (coupon_code) lines.push(`✂️ Coupon: \`${coupon_code}\``);
+            if (expiry_date) lines.push(`⏰ Scade: ${expiry_date}`);
+            lines.push(``);
+            if (affiliate_link) lines.push(`👉 [ACQUISTA ORA](${affiliate_link})`);
+            lines.push(`_Prezzi e disponibilità possono variare. Link affiliato._`);
+
+            return lines.join("\n");
+        }
+
+        function updatePreview() {
+            const raw = buildRaw();
+            if (!raw) {
+                document.getElementById('preview_message').textContent = "Compila il form per vedere l'anteprima...";
+                document.getElementById('preview_raw').textContent = "";
+                return;
+            }
+
+            document.getElementById('preview_raw').textContent = raw;
+
+            let html = raw
+                .replace(/\*([^*]+)\*/g, '<span class="bold">$1</span>')
+                .replace(/~~([^~]+)~~/g, '<span class="strike">$1</span>')
+                .replace(/_([^_]+)_/g, '<span class="muted">$1</span>')
+                .replace(/`([^`]+)`/g, '<span class="code">$1</span>')
+                .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a class="link" href="$2" target="_blank">$1</a>');
+        
+            document.getElementById('preview_message').innerHTML = html;
+        }
+
+        document.querySelectorAll(".offer-tool__input").forEach(input => {
+            input.addEventListener("input", updatePreview);
+        });
+
+        const publishButton = document.getElementById('publish_button');
+
+        publishButton.addEventListener("click", () => {
+            const raw = buildRaw();
+            if (!raw) {
+                return;
+            }
+            const tokenBot = document.getElementById("token_bot").value.trim();
+            if (!tokenBot) {
+                return;
+            }
+            const channelId = document.getElementById("channel_id").value.trim();
+            if (!channelId) {
+                return;
+            }
+
+            const url = `https://api.telegram.org/bot${tokenBot}/sendMessage`;
+            const payload = {
+                chat_id: channelId,
+                text: raw,
+                parse_mode: "Markdown"
+            };
+
+            fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            });
+        });
+    </script>
+</body>
+</html>
